@@ -1,0 +1,40 @@
+<h1><%= @post.title %></h1>
+<p class="blog-post-meta"><%= l(@post.created_at, :format => :short) %> by <%= @post.author.name %></p>
+
+<p><%= simple_format(@post.content) %></p>
+
+<% if (current_author && current_author == @post.author) %>
+  <p><%= link_to("Edit", edit_post_path(@post)) %> | <%= button_to("Delete", @post, method: :delete, data: { confirm: 'Are you sure?' }) %></p>
+<% end %>
+
+<hr>
+
+<p><%= link_to("Back to list", root_path) %></p>
+
+<hr>
+
+<div class="comment-list">
+  <% @comments.each do |comment| %>
+    <article class="comment">
+      <div class="comment__content">
+        <%= comment.content %>
+      </div>
+
+      <div class="comment__info">
+        <%= l(comment.created_at, :format => :short) %> by <%= comment.author.name %>
+      </div>
+    </article>
+  <% end %>
+</div>
+
+<hr>
+
+<p><%= link_to("Back to list", root_path) %></p>
+
+<hr>
+
+<% if author_signed_in? %>
+  <%= form_for([@post, @post.comments.build]) do |f| %>
+    <%= render "comment_form", :f => f %>
+  <% end %>
+<% end %>
