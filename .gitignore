@@ -11,6 +11,13 @@
 /db/*.sqlite3
 /db/*.sqlite3-journal
 
+# Rails general
+config/database.yml
+coverage
+log
+log/*.log
+vendor/bundle
+
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
