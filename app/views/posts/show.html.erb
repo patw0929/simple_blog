@@ -4,7 +4,7 @@
 <p><%= simple_format(@post.content) %></p>
 
 <% if (current_author && current_author == @post.author) %>
-  <p><%= link_to("Edit", edit_post_path(@post)) %> | <%= button_to("Delete", @post, method: :delete, data: { confirm: 'Are you sure?' }) %></p>
+  <p><%= link_to("Edit", edit_post_path(@post)) %> | <%= link_to("Delete", @post, method: :delete, data: { confirm: 'Are you sure?' }) %></p>
 <% end %>
 
 <hr>
