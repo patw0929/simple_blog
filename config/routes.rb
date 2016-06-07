@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :admin_users, ActiveAdmin::Devise.config
+  devise_for :admin_users, controllers: {
+    omniauth_callbacks: "admin/omniauth_callbacks"
+  }
   ActiveAdmin.routes(self)
   devise_for :authors
   # The priority is based upon order of creation: first created -> highest priority.
