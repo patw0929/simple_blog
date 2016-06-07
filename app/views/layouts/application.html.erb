@@ -36,7 +36,7 @@
           <h4>Author Panel</h4>
 
           <% if current_author %>
-            <%= link_to('Write post', new_post_path) %> |
+            <%#= link_to('Write post', new_post_path) %> |
             <%= link_to('Logout', destroy_author_session_path) %> |
             <%= link_to('Modify password', edit_registration_path(:author)) %>
           <% else %>
