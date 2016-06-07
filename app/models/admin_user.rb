@@ -17,4 +17,8 @@ class AdminUser < ActiveRecord::Base
     end
     admin
   end
+
+  def admin?
+    self.enable == true
+  end
 end
