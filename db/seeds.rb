@@ -23,3 +23,4 @@ Post.populate(10) do |post|
     comment.content = Populator.paragraphs(1)
   end
 end
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
