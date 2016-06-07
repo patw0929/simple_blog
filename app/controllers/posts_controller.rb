@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_filter :set_post, :only => [:show, :edit, :update, :destroy]
   before_filter :authenticate_author!, :except => [:show, :index]
+  before_filter :require_permission, :only => [:edit, :update, :destory]
 
   def index
     @posts = Post.recent.paginate(:page => params[:page], :per_page => 5)
@@ -57,5 +58,11 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :content)
+  end
+
+  def require_permission
+    if current_author != Post.find(params[:id]).author
+      redirect_to root_path
+    end
   end
 end
