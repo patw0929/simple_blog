@@ -13,7 +13,6 @@
 
 # Rails general
 config/database.yml
-config/secrets.yml
 coverage
 log
 log/*.log
