@@ -1,1 +1,15 @@
-Posts
+<% @posts.each do |post| %>
+  <article class="blog-post">
+    <h1 class="blog-post__title"><%= link_to(truncate(post.title, length: 40), post) %></h1>
+
+    <p class="blog-post-meta"><%= l(post.created_at, :format => :short) %> by <%= post.author.name %></p>
+
+    <div class="blog-post__content">
+      <%= truncate(post.content, length: 500) %>
+    </div>
+  </article>
+<% end %>
+
+<nav>
+  <%= will_paginate(@posts) %>
+</nav>
