@@ -44,6 +44,12 @@
             <%= link_to('Sign in', new_session_path(:author)) %>
           <% end %>
         </div>
+
+        <div class="sidebar-module sidebar-module-inset">
+          <h4>Admin Panel</h4>
+
+          <%= link_to 'Signin as admin with Google', admin_user_omniauth_authorize_path(:google_oauth2) %>
+        </div>
       </div>
     </div>
   </div>
