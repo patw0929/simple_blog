@@ -33,6 +33,11 @@ gem 'cancancan'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 
+group :development do
+  gem "populator"
+  gem "faker"
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
