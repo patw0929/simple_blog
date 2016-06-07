@@ -1,14 +1,26 @@
-class PostsController < ApplicationController
+class Api::V1::PostsController < Api::V1::BaseController
   before_filter :set_post, :only => [:show, :edit, :update, :destroy]
   before_filter :authenticate_author!, :except => [:show, :index]
   before_filter :require_permission, :only => [:edit, :update, :destory]
 
   def index
     @posts = Post.recent.paginate(:page => params[:page], :per_page => 5)
+
+    respond_to do |format|
+      format.json { render json: @posts }
+    end
   end
 
   def show
     @comments = @post.comments.recent
+
+    respond_to do |format|
+      format.json { render :json => {
+          :post => @post,
+          :comments => @comments
+        }
+      }
+    end
   end
 
   def new
