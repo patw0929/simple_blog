@@ -8,7 +8,36 @@
 </head>
 <body>
 
-<%= yield %>
+  <div class="container">
+    <div class="blog-header">
+      <h1 class="blog-title">Blog</h1>
+      <p class="lead blog-description">Simple blog.</p>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-8 blog-main">
+        <% if notice %>
+          <p class="alert alert-success"><%= notice %></p>
+        <% end %>
+        <% if alert %>
+          <p class="alert alert-danger"><%= alert %></p>
+        <% end %>
+
+        <%= yield %>
+      </div>
+
+      <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+        <div class="sidebar-module sidebar-module-inset">
+          <h4>About</h4>
+          <p>The template is based on Bootstrap's blog template.</p>
+        </div>
+
+        <div class="sidebar-module sidebar-module-inset">
+          <h4>User Panel</h4>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>
