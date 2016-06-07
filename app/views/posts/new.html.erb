@@ -1,0 +1,5 @@
+<% if author_signed_in? %>
+  <%= form_for @post do |f| %>
+    <%= render "post_form",:f => f %>
+  <% end %>
+<% end %>
