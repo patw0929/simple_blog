@@ -33,7 +33,16 @@
         </div>
 
         <div class="sidebar-module sidebar-module-inset">
-          <h4>User Panel</h4>
+          <h4>Author Panel</h4>
+
+          <% if current_author %>
+            <%= link_to('Write post', new_post_path) %> |
+            <%= link_to('Logout', destroy_author_session_path, :method => :delete) %> |
+            <%= link_to('Modify password', edit_registration_path(:author)) %>
+          <% else %>
+            <%= link_to('Sign up', new_registration_path(:author)) %> |
+            <%= link_to('Sign in', new_session_path(:author)) %>
+          <% end %>
         </div>
       </div>
     </div>
