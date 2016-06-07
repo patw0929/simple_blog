@@ -32,7 +32,7 @@ class Single extends React.Component {
         <PostShow id={this.state.post.id}
           title={this.state.post.title}
           author={this.state.post.author ? this.state.post.author.name : null}
-          date={this.state.post.date} />
+          date={this.state.post.created_at} />
         <CommentList data={this.state.comments} />
       </div>
     );
