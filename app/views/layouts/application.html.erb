@@ -37,7 +37,7 @@
 
           <% if current_author %>
             <%= link_to('Write post', new_post_path) %> |
-            <%= link_to('Logout', destroy_author_session_path, :method => :delete) %> |
+            <%= link_to('Logout', destroy_author_session_path) %> |
             <%= link_to('Modify password', edit_registration_path(:author)) %>
           <% else %>
             <%= link_to('Sign up', new_registration_path(:author)) %> |
@@ -48,7 +48,12 @@
         <div class="sidebar-module sidebar-module-inset">
           <h4>Admin Panel</h4>
 
-          <%= link_to 'Signin as admin with Google', admin_user_omniauth_authorize_path(:google_oauth2) %>
+          <% if current_admin_user %>
+            <%= link_to('Backstage', admin_root_path) %> |
+            <%= link_to('Logout', destroy_admin_user_session_path) %>
+          <% else %>
+            <%= link_to 'Signin as admin with Google', admin_user_omniauth_authorize_path(:google_oauth2) %>
+          <% end %>
         </div>
       </div>
     </div>
