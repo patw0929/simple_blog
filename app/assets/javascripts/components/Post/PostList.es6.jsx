@@ -5,7 +5,9 @@ class PostList extends React.Component {
     this.state = {
       posts: [],
     };
+  }
 
+  componentDidMount() {
     this._retrievePosts();
   }
 

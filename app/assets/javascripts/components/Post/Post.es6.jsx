@@ -3,10 +3,10 @@ class Post extends React.Component {
     return (
       <article className="blog-post">
         <h1 className="blog-post__title">
-          <Link to={'/posts/' + this.props.id}>{this.props.title}</Link>
+          <Link to={'/posts/' + this.props.id}><span>{this.props.title}</span></Link>
         </h1>
 
-        <p className="blog-post-meta">{this.props.date} by {this.props.author}</p>
+        <p className="blog-post-meta"><span>{this.props.date}</span> by <span>{this.props.author}</span></p>
 
         <div className="blog-post__content">
           {this.props.content}
