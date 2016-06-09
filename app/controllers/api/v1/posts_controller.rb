@@ -23,10 +23,6 @@ class Api::V1::PostsController < Api::V1::BaseController
     end
   end
 
-  def new
-    @post = Post.new
-  end
-
   def create
     @post = Post.new(post_params)
     @post.author_id = current_author.id
@@ -38,9 +34,6 @@ class Api::V1::PostsController < Api::V1::BaseController
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
-  end
-
-  def edit
   end
 
   def update
