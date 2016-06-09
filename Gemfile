@@ -36,8 +36,7 @@ gem 'cancancan'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 
-gem 'react-rails'
-gem 'react-router-rails', '~>0.13.3.2'
+gem 'react_on_rails', "~> 5"
 
 group :development do
   gem "populator"
