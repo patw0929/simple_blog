@@ -35,11 +35,17 @@ class Single extends React.Component {
           author_id={this.state.post.author_id}
           author={this.state.post.author ? this.state.post.author.name : null}
           date={this.state.post.created_at}
-          current_author_id={this.props.current_author.id} />
+          current_author_id={this.props.current_author ? this.props.current_author.id : 0} />
         <CommentList data={this.state.comments} />
-        <CommentForm current_author_id={this.props.current_author.id}
+        <CommentForm current_author_id={this.props.current_author ? this.props.current_author.id : 0}
           post_id={this.state.post.id} />
       </div>
     );
   }
 }
+
+Single.defaultProps = {
+  current_author: {
+    id: 0,
+  },
+};
