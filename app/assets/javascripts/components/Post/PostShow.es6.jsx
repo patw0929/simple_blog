@@ -33,7 +33,7 @@ class PostShow extends React.Component {
         <h1>{this.props.title}</h1>
 
         <p className="blog-post-meta">
-          <span>{this.props.date}</span> by <span>{this.props.author}</span>
+          <span>{parseDateToLocalFormat(this.props.date)}</span> by <span>{this.props.author}</span>
         </p>
 
         <p>{this.props.content}</p>
