@@ -7,7 +7,14 @@ class Api::V1::PostsController < Api::V1::BaseController
     @posts = Post.recent.paginate(:page => params[:page], :per_page => 5)
 
     respond_to do |format|
-      format.json { render json: @posts }
+      format.json {
+        render :json => {
+          :current_page => @posts.current_page,
+          :per_page => @posts.per_page,
+          :total_entries => @posts.total_entries,
+          :entries => @posts
+        }
+      }
     end
   end
 

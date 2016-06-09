@@ -18,7 +18,7 @@ class PostList extends React.Component {
       if (response.ok) {
         response.json().then((data) => {
           this.setState({
-            posts: data,
+            posts: data.entries,
           });
         });
       }
