@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'hello_world', to: 'hello_world#index'
   devise_for :admin_users, controllers: {
     omniauth_callbacks: "admin/omniauth_callbacks"
   }
