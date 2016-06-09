@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { browserHistory } from 'react-router';
 
 
@@ -15,7 +16,9 @@ export default class CommentForm extends React.Component {
       body: new FormData(document.getElementById('comment-form')),
     }).then((response) => {
       if (response.ok) {
-        browserHistory.push(`/posts/${this.props.post_id}`);
+        window.scroll(0, 0);
+        ReactDOM.findDOMNode(this.refs.comment_content).value = '';
+        this.props.handleUpdate(this.props.post_id);
       } else {
         alert('Failed.');
       }
@@ -32,7 +35,7 @@ export default class CommentForm extends React.Component {
         <div className="form-group">
           <label className="control-label" htmlFor="comment_content">Comment</label>
           <div>
-            <textarea className="form-control" ref="comment_content" name="comment[content]"></textarea>
+            <textarea className="form-control" id="comment_content" ref="comment_content" name="comment[content]"></textarea>
           </div>
         </div>
 

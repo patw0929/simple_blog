@@ -44,7 +44,8 @@ export default class Single extends React.Component {
           current_author_id={this.props.current_author ? this.props.current_author.id : 0} />
         <CommentList data={this.state.comments} />
         <CommentForm current_author_id={this.props.current_author ? this.props.current_author.id : 0}
-          post_id={this.state.post.id} />
+          post_id={this.state.post.id}
+          handleUpdate={this._retrievePost.bind(this)} />
       </div>
     );
   }
