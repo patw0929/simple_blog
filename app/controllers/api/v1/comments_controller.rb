@@ -1,16 +1,19 @@
-class CommentsController < ApplicationController
+class Api::V1::CommentsController < Api::V1::BaseController
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.create(comment_params)
     @comment.post_id = @post.id
     @comment.author_id = current_author.id
 
-    if @comment.save
-      redirect_to post_path(@post), :notice => "Your comment is posted."
-    else
-      render :action => "new"
+    respond_to do |format|
+      if @comment.save
+        format.json { head :no_content, status: :ok }
+      else
+        format.json { render json: @comment.errors, status: :unprocessable_entity }
+      end
     end
   end
+
 
   private
 
