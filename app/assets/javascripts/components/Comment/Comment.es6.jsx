@@ -7,7 +7,7 @@ class Comment extends React.Component {
         </div>
 
         <div className="comment__info">
-          {this.props.date} by {this.props.author.name}
+          {parseDateToLocalFormat(this.props.date)} by {this.props.author.name}
         </div>
       </article>
     );
