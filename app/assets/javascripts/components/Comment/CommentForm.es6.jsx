@@ -1,5 +1,3 @@
-const transitionTo = Router.transitionTo;
-
 class CommentForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
@@ -13,7 +11,7 @@ class CommentForm extends React.Component {
       body: new FormData(document.getElementById('comment-form')),
     }).then((response) => {
       if (response.ok) {
-        transitionTo(`/posts/${this.props.post_id}/`);
+        window.location.href = `/posts/${this.props.post_id}`;
       } else {
         alert('Failed.');
       }
