@@ -53,11 +53,12 @@ class Api::V1::PostsController < Api::V1::BaseController
   end
 
   def destroy
-    if @post.destroy
-      flash[:notice] = 'Post was successfully deleted.'
-      redirect_to posts_path
-    else
-      render :action => "index"
+    respond_to do |format|
+      if @post.destroy
+        format.json { head :no_content, status: :ok }
+      else
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
     end
   end
 
