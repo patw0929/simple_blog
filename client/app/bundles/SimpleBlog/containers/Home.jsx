@@ -6,7 +6,7 @@ export default class Home extends React.Component {
   render () {
     return (
       <div>
-        <PostList />
+        <PostList page={this.props.params.page} />
       </div>
     );
   }

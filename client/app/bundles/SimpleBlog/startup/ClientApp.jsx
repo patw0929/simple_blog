@@ -11,7 +11,7 @@ export default function (props) {
   return (
     <Router history={browserHistory}>
       <Route component={Layout} {...props}>
-        <Route component={Home} path="/" />
+        <Route component={Home} path="/(page/:page)" />
         <Route component={Single} path="posts/:id" />
         <Route component={NewPost} path="new_post" />
         <Route component={EditPost} path="posts/:id/edit" />
