@@ -1,8 +1,8 @@
-class Home extends React.Component {
+class NewPost extends React.Component {
   render () {
     return (
       <div>
-        <PostList />
+        <PostNew />
       </div>
     );
   }
