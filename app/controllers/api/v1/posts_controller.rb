@@ -33,10 +33,9 @@ class Api::V1::PostsController < Api::V1::BaseController
 
     respond_to do |format|
       if @post.save
-        flash[:notice] = 'Post was successfully created.'
-        format.html { redirect_to(@post) }
+        format.json { head :no_content, status: :ok }
       else
-        format.html { render :action => "new" }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
   end
