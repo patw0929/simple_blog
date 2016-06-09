@@ -7,7 +7,17 @@ class ApplicationController < ActionController::Base
 
   def index
     @data = {
-      current_author: current_author
+      notice: notice,
+      alert: alert,
+      current_author: current_author,
+      current_admin_user: current_admin_user,
+      author_logout_path: destroy_author_session_path,
+      author_edit_path: edit_registration_path(:author),
+      author_register_path: new_registration_path(:author),
+      author_login_path: new_session_path(:author),
+      admin_login_path: admin_user_omniauth_authorize_path(:google_oauth2),
+      admin_root_path: admin_root_path,
+      admin_logout_path: destroy_admin_user_session_path,
     }
     @location_path = "/#{params[:path]}"
   end

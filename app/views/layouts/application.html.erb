@@ -14,49 +14,7 @@
       <p class="lead blog-description">Simple blog.</p>
     </div>
 
-    <div class="row">
-      <div class="col-sm-8 blog-main">
-        <% if notice %>
-          <p class="alert alert-success"><%= notice %></p>
-        <% end %>
-        <% if alert %>
-          <p class="alert alert-danger"><%= alert %></p>
-        <% end %>
-
-        <%= yield %>
-      </div>
-
-      <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
-        <div class="sidebar-module sidebar-module-inset">
-          <h4>About</h4>
-          <p>The template is based on Bootstrap's blog template.</p>
-        </div>
-
-        <div class="sidebar-module sidebar-module-inset">
-          <h4>Author Panel</h4>
-
-          <% if current_author %>
-            <%#= link_to('Write post', new_post_path) %> |
-            <%= link_to('Logout', destroy_author_session_path) %> |
-            <%= link_to('Modify password', edit_registration_path(:author)) %>
-          <% else %>
-            <%= link_to('Sign up', new_registration_path(:author)) %> |
-            <%= link_to('Sign in', new_session_path(:author)) %>
-          <% end %>
-        </div>
-
-        <div class="sidebar-module sidebar-module-inset">
-          <h4>Admin Panel</h4>
-
-          <% if current_admin_user %>
-            <%= link_to('Backstage', admin_root_path) %> |
-            <%= link_to('Logout', destroy_admin_user_session_path) %>
-          <% else %>
-            <%= link_to 'Signin as admin with Google', admin_user_omniauth_authorize_path(:google_oauth2) %>
-          <% end %>
-        </div>
-      </div>
-    </div>
+    <%= yield %>
   </div>
 
 </body>

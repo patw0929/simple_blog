@@ -18,7 +18,7 @@ class PostShow extends React.Component {
   }
 
   render () {
-    AuthorPanel = '';
+    let AuthorPanel = '';
     if (this.props.current_author_id == this.props.author_id) {
       AuthorPanel = (
         <div className='btn-group'>
