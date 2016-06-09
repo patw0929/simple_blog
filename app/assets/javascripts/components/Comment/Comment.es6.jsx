@@ -3,7 +3,7 @@ class Comment extends React.Component {
     return (
       <article className="comment">
         <div className="comment__content">
-          {this.props.content}
+          <div dangerouslySetInnerHTML={{__html: nl2br(this.props.content)}}></div>
         </div>
 
         <div className="comment__info">

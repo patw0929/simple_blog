@@ -36,7 +36,7 @@ class PostShow extends React.Component {
           <span>{parseDateToLocalFormat(this.props.date)}</span> by <span>{this.props.author}</span>
         </p>
 
-        <p>{this.props.content}</p>
+        <p dangerouslySetInnerHTML={{__html: nl2br(this.props.content)}}></p>
 
         <div>{AuthorPanel}</div>
 

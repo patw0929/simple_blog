@@ -11,7 +11,7 @@ class Post extends React.Component {
         </p>
 
         <div className="blog-post__content">
-          {this.props.content}
+          <div dangerouslySetInnerHTML={{__html: nl2br(this.props.content)}}></div>
         </div>
       </article>
     );
