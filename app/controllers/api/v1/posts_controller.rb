@@ -37,10 +37,12 @@ class Api::V1::PostsController < Api::V1::BaseController
   end
 
   def update
-    if @post.update_attributes(post_params)
-      redirect_to post_path(@post), :notice => "Updated successfully."
-    else
-      render :action => "edit"
+    respond_to do |format|
+      if @post.update_attributes(post_params)
+        format.json { head :no_content, status: :ok }
+      else
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
     end
   end
 
