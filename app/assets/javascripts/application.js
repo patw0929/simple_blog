@@ -20,3 +20,9 @@
 // about supported directives.
 //
 //= require turbolinks
+
+$(document).on('ready page:load', function () {
+  setTimeout(function () {
+    $('.alert').fadeOut('slow');
+  }, 2000);
+});
