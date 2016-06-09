@@ -37,6 +37,8 @@ class Single extends React.Component {
           date={this.state.post.created_at}
           current_author_id={this.props.current_author.id} />
         <CommentList data={this.state.comments} />
+        <CommentForm current_author_id={this.props.current_author.id}
+          post_id={this.state.post.id} />
       </div>
     );
   }
