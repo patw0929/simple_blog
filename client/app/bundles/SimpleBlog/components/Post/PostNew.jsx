@@ -1,4 +1,8 @@
-class PostNew extends React.Component {
+import React from 'react';
+import { Link, browserHistory } from 'react-router';
+
+
+export default class PostNew extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
@@ -11,7 +15,7 @@ class PostNew extends React.Component {
       body: new FormData(document.getElementById('post-form')),
     }).then((response) => {
       if (response.ok) {
-        window.location.href = '/';
+        browserHistory.push('/');
       } else {
         alert('Failed.');
       }

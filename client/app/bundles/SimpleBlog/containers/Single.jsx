@@ -1,4 +1,10 @@
-class Single extends React.Component {
+import React from 'react';
+import PostShow from '../components/Post/PostShow';
+import CommentList from '../components/Comment/CommentList';
+import CommentForm from '../components/Comment/CommentForm';
+
+
+export default class Single extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

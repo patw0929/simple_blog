@@ -1,48 +1,53 @@
-var RouteHandler = ReactRouter.RouteHandler,
-    Link = ReactRouter.Link;
+import React from 'react';
+import { RouteHandler, Link } from 'react-router';
 
-class App extends React.Component {
+
+export default class Layout extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   render () {
     let noticeMsg = '';
-    if (this.props.notice) {
+    if (this.props.route.notice) {
       noticeMsg = (
-        <p className="alert alert-success">{this.props.notice}</p>
+        <p className="alert alert-success">{this.props.route.notice}</p>
       );
     }
 
     let alertMsg = '';
-    if (this.props.alert) {
+    if (this.props.route.alert) {
       alertMsg = (
-        <p className="alert alert-danger">{this.props.alert}</p>
+        <p className="alert alert-danger">{this.props.route.alert}</p>
       );
     }
 
     let authorPanel = (
       <div>
-        <a href={this.props.author_register_path}>Sign up</a> |
-        <a href={this.props.author_login_path}>Sign in</a>
+        <a href={this.props.route.author_register_path}>Sign up</a> |
+        <a href={this.props.route.author_login_path}>Sign in</a>
       </div>
     );
-    if (this.props.current_author) {
+    if (this.props.route.current_author) {
       authorPanel = (
         <div>
           <Link to="/new_post">Write post</Link> |
-           <a href={this.props.author_logout_path}>Logout</a> |
-           <a href={this.props.author_edit_path}>Edit profile</a>
+           <a href={this.props.route.author_logout_path}>Logout</a> |
+           <a href={this.props.route.author_edit_path}>Edit profile</a>
         </div>
       );
     }
 
     let adminPanel = (
       <div>
-        <a href={this.props.admin_login_path}>Signin as admin with Google</a>
+        <a href={this.props.route.admin_login_path}>Signin as admin with Google</a>
       </div>
     );
-    if (this.props.current_admin_user) {
+    if (this.props.route.current_admin_user) {
       adminPanel = (
         <div>
-          <a href={this.props.admin_root_path}>Backstage</a> |
-          <a href={this.props.admin_logout_path}>Logout</a>
+          <a href={this.props.route.admin_root_path}>Backstage</a> |
+          <a href={this.props.route.admin_logout_path}>Logout</a>
         </div>
       );
     }
@@ -53,7 +58,7 @@ class App extends React.Component {
           {noticeMsg}
           {alertMsg}
 
-          <RouteHandler {...this.props} />
+          {React.cloneElement(this.props.children, this.props.route)}
         </div>
 
         <div className="col-sm-3 col-sm-offset-1 blog-sidebar">
@@ -78,4 +83,3 @@ class App extends React.Component {
     );
   }
 }
-

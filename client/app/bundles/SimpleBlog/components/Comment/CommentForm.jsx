@@ -1,4 +1,8 @@
-class CommentForm extends React.Component {
+import React from 'react';
+import { browserHistory } from 'react-router';
+
+
+export default class CommentForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
@@ -11,7 +15,7 @@ class CommentForm extends React.Component {
       body: new FormData(document.getElementById('comment-form')),
     }).then((response) => {
       if (response.ok) {
-        window.location.href = `/posts/${this.props.post_id}`;
+        browserHistory.push(`/posts/${this.props.post_id}`);
       } else {
         alert('Failed.');
       }

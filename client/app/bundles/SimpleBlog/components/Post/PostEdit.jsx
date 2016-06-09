@@ -1,8 +1,13 @@
-class PostEdit extends React.Component {
+import React from 'react';
+import { Link, browserHistory } from 'react-router';
+
+
+export default class PostEdit extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      post: {},
+      title: '',
+      content: '',
     };
   }
 
@@ -43,7 +48,7 @@ class PostEdit extends React.Component {
       body: new FormData(document.getElementById('post-form')),
     }).then((response) => {
       if (response.ok) {
-        window.location.href = `/posts/${this.props.id}`;
+        browserHistory.push(`/posts/${this.props.id}`);
       } else {
         alert('Failed.');
       }

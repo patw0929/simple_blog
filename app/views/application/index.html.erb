@@ -1,1 +1,3 @@
-<%= react_router 'MyRoutes', 'HistoryLocation', @data, { prerender_location: @location_path } %>
+<%= react_component("App",
+                     props: @data,
+                     prerender: false) %>

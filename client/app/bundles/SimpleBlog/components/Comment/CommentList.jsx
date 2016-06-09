@@ -1,4 +1,8 @@
-class CommentList extends React.Component {
+import React from 'react';
+import Comment from './Comment';
+
+
+export default class CommentList extends React.Component {
   constructor(props) {
     super(props);
   }

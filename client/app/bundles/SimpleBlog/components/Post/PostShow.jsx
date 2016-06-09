@@ -1,4 +1,9 @@
-class PostShow extends React.Component {
+import React from 'react';
+import { Link, browserHistory } from 'react-router';
+import Utils from '../../utils/utils';
+
+
+export default class PostShow extends React.Component {
   handleDelete(id) {
     if (confirm('Do you really want to delete it?')) {
       fetch(`/api/v1/posts/${id}`, {
@@ -9,7 +14,7 @@ class PostShow extends React.Component {
         },
       }).then((response) => {
         if (response.ok) {
-          window.location.href = '/';
+          browserHistory.push('/');
         } else {
           alert('Failed.');
         }
@@ -33,10 +38,10 @@ class PostShow extends React.Component {
         <h1>{this.props.title}</h1>
 
         <p className="blog-post-meta">
-          <span>{parseDateToLocalFormat(this.props.date)}</span> by <span>{this.props.author}</span>
+          <span>{Utils.parseDateToLocalFormat(this.props.date)}</span> by <span>{this.props.author}</span>
         </p>
 
-        <p dangerouslySetInnerHTML={{__html: nl2br(this.props.content)}}></p>
+        <p dangerouslySetInnerHTML={{__html: Utils.nl2br(this.props.content)}}></p>
 
         <div>{AuthorPanel}</div>
 

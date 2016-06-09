@@ -1,4 +1,8 @@
-class PostList extends React.Component {
+import React from 'react';
+import Post from './Post';
+
+
+export default class PostList extends React.Component {
   constructor(props) {
     super(props);
 
