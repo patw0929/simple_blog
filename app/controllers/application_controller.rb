@@ -6,6 +6,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def index
+    @data = {
+      current_author: current_author
+    }
     @location_path = "/#{params[:path]}"
   end
 
