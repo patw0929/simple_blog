@@ -12,7 +12,7 @@ module.exports = {
   context: __dirname,
   entry: [
     'babel-polyfill',
-    './app/startup/serverRegistration',
+    './app/bundles/SimpleBlog/startup/serverRegistration',
   ],
   output: {
     filename: 'server-bundle.js',
@@ -50,7 +50,5 @@ module.exports = {
       },
     ],
   },
-
   sassResources: ['./app/assets/styles/app-variables.scss'],
-
 };
