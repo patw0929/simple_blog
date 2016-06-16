@@ -27,3 +27,12 @@ https://protected-beach-50101.herokuapp.com/
 * [omniauth-google-oauth2](https://github.com/zquestz/omniauth-google-oauth2)
 * [bootstrap](https://github.com/twbs/bootstrap-sass)
 
+
+# Start
+
+```
+bundle install
+rake db:migrate
+npm install
+npm run rails-server
+```
