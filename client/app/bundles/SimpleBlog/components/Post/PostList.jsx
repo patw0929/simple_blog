@@ -3,7 +3,6 @@ import { browserHistory } from 'react-router';
 import ReactPaginate from 'react-paginate';
 import Post from './Post';
 
-
 export default class PostList extends React.Component {
   constructor(props) {
     super(props);
@@ -15,7 +14,7 @@ export default class PostList extends React.Component {
     };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     let initPage = parseInt(this.props.page, 10);
     if (isNaN(initPage)) {
       initPage = 1;
@@ -84,4 +83,3 @@ export default class PostList extends React.Component {
     );
   }
 }
-

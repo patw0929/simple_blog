@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link, browserHistory } from 'react-router';
 
-
-export default class PostEdit extends React.Component {
+export default class PostEdit extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -11,7 +10,7 @@ export default class PostEdit extends React.Component {
     };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this._retrievePost(this.props.id);
   }
 
@@ -55,7 +54,7 @@ export default class PostEdit extends React.Component {
     });
   }
 
-  render () {
+  render() {
     return (
       <form id="post-form" onSubmit={this.handleSubmit.bind(this)}>
         <h1>Edit post</h1>

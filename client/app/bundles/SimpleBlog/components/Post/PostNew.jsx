@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link, browserHistory } from 'react-router';
 
-
-export default class PostNew extends React.Component {
+export default class PostNew extends Component {
   handleSubmit(e) {
     e.preventDefault();
 
@@ -22,7 +21,7 @@ export default class PostNew extends React.Component {
     });
   }
 
-  render () {
+  render() {
     return (
       <form id='post-form' onSubmit={this.handleSubmit.bind(this)}>
         <h1>Write post</h1>

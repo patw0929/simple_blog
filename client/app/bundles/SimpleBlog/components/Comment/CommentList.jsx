@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Comment from './Comment';
 
-
-export default class CommentList extends React.Component {
+export default class CommentList extends Component {
   constructor(props) {
     super(props);
   }
@@ -23,7 +22,3 @@ export default class CommentList extends React.Component {
     );
   }
 }
-
-CommentList.defaultProps = {
-  data: [],
-};

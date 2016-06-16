@@ -1,12 +1,7 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import { RouteHandler, Link } from 'react-router';
 
-
-export default class Layout extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
+export default class Layout extends Component {
   render () {
     let noticeMsg = '';
     if (this.props.route.notice) {
@@ -53,30 +48,37 @@ export default class Layout extends React.Component {
     }
 
     return (
-      <div className="row">
-        <div className="col-sm-8 blog-main">
-          {noticeMsg}
-          {alertMsg}
-
-          {React.cloneElement(this.props.children, this.props.route)}
+      <div>
+        <div className="blog-header">
+          <h1 className="blog-title"><Link to="/">Blog</Link></h1>
+          <p className="lead blog-description">Simple blog.</p>
         </div>
 
-        <div className="col-sm-3 col-sm-offset-1 blog-sidebar">
-          <div className="sidebar-module sidebar-module-inset">
-            <h4>About</h4>
-            <p>The template is based on Bootstrap's blog template.</p>
+        <div className="row">
+          <div className="col-sm-8 blog-main">
+            {noticeMsg}
+            {alertMsg}
+
+            {React.cloneElement(this.props.children, this.props.route)}
           </div>
 
-          <div className="sidebar-module sidebar-module-inset">
-            <h4>Author Panel</h4>
+          <div className="col-sm-3 col-sm-offset-1 blog-sidebar">
+            <div className="sidebar-module sidebar-module-inset">
+              <h4>About</h4>
+              <p>The template is based on Bootstrap's blog template.</p>
+            </div>
 
-            {authorPanel}
-          </div>
+            <div className="sidebar-module sidebar-module-inset">
+              <h4>Author Panel</h4>
 
-          <div className="sidebar-module sidebar-module-inset">
-            <h4>Admin Panel</h4>
+              {authorPanel}
+            </div>
 
-            {adminPanel}
+            <div className="sidebar-module sidebar-module-inset">
+              <h4>Admin Panel</h4>
+
+              {adminPanel}
+            </div>
           </div>
         </div>
       </div>

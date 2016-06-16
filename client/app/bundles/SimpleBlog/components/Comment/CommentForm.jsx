@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { browserHistory } from 'react-router';
 
-
-export default class CommentForm extends React.Component {
+export default class CommentForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
 
@@ -25,7 +24,7 @@ export default class CommentForm extends React.Component {
     });
   }
 
-  render () {
+  render() {
     if (!this.props.current_author_id) {
       return <div />;
     }

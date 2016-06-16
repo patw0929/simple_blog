@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PostShow from '../components/Post/PostShow';
 import CommentList from '../components/Comment/CommentList';
 import CommentForm from '../components/Comment/CommentForm';
 
-
-export default class Single extends React.Component {
+export default class Single extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,7 +12,13 @@ export default class Single extends React.Component {
     }
   }
 
-  componentDidMount() {
+  static defaultProps = {
+    current_author: {
+      id: 0,
+    },
+  };
+
+  componentWillMount() {
     this._retrievePost(this.props.params.id);
   }
 
@@ -32,7 +37,7 @@ export default class Single extends React.Component {
     });
   }
 
-  render () {
+  render() {
     return (
       <div>
         <PostShow id={this.state.post.id}
@@ -50,9 +55,3 @@ export default class Single extends React.Component {
     );
   }
 }
-
-Single.defaultProps = {
-  current_author: {
-    id: 0,
-  },
-};

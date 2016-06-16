@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link, browserHistory } from 'react-router';
 import Utils from '../../utils/utils';
 
+export default class PostShow extends Component {
+  static defaultProps = {
+    title: '',
+    content: '',
+    date: '',
+    author: {
+      name: ''
+    },
+    author_id: 0,
+    current_author_id: null,
+  };
 
-export default class PostShow extends React.Component {
   handleDelete(id) {
     if (confirm('Do you really want to delete it?')) {
       fetch(`/api/v1/posts/${id}`, {
@@ -22,9 +32,9 @@ export default class PostShow extends React.Component {
     }
   }
 
-  render () {
+  render() {
     let AuthorPanel = '';
-    if (this.props.current_author_id == this.props.author_id) {
+    if (this.props.current_author_id === this.props.author_id) {
       AuthorPanel = (
         <div className='btn-group'>
           <Link to={'/posts/' + this.props.id + '/edit'} className='btn btn-default'>Edit</Link>
@@ -54,13 +64,3 @@ export default class PostShow extends React.Component {
     );
   }
 }
-
-PostShow.defaultProps = {
-  title: '',
-  content: '',
-  date: '',
-  author: {
-    name: ''
-  },
-  author_id: 0,
-};

@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Utils from '../../utils/utils';
 
+export default class Comment extends Component {
+  static defaultProps = {
+    content: '',
+    date: '',
+    author: {
+      name: '',
+    },
+  };
 
-export default class Comment extends React.Component {
-  render () {
+  render() {
     return (
       <article className="comment">
         <div className="comment__content">
@@ -17,11 +24,3 @@ export default class Comment extends React.Component {
     );
   }
 }
-
-Comment.defaultProps = {
-  content: '',
-  date: '',
-  author: {
-    name: '',
-  },
-};

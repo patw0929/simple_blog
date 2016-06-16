@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router';
 import Utils from '../../utils/utils';
 
-
-export default class Post extends React.Component {
-  render () {
+export default class Post extends Component {
+  render() {
     return (
       <article className="blog-post">
         <h1 className="blog-post__title">
@@ -22,4 +21,3 @@ export default class Post extends React.Component {
     );
   }
 }
-
