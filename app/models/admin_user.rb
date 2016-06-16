@@ -21,4 +21,8 @@ class AdminUser < ActiveRecord::Base
   def admin?
     self.enable == true
   end
+
+  validates :email, presence: true
+  validates :password, :password_confirmation, presence: true, on: :create
+  validates :password, confirmation: true
 end
